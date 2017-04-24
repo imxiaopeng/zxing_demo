@@ -372,6 +372,10 @@ public class CaptureActivity extends AppCompatActivity implements
                     hints.put(DecodeHintType.POSSIBLE_FORMATS,
                             DecodeFormatManager.getQrCodeFormats());
                     hints.put(DecodeHintType.CHARACTER_SET, "UTF8");
+                    //优化精度
+                    hints.put(DecodeHintType.TRY_HARDER, String.valueOf(Boolean.TRUE));
+                    //复杂模式，开启PURE_BARCODE模式
+                    hints.put(DecodeHintType.PURE_BARCODE, String.valueOf(Boolean.TRUE));
                     reader.setHints(hints);
                     Result result = reader.decodeWithState(image);
                     //获取到二维码信息 传递给上级页面
